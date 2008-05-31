@@ -1,0 +1,24 @@
+as2js
+  by Tatsuya Takamura
+
+== DESCRIPTION:
+
+You can call JavaScript function or object from ActionScript by this libraly
+Please confirm demo page http://blog.tkmr.org/as2js-test.html?twitter=tkmr&ustream=tkmr
+
+== SAMPLE CODE:
+
+(in the ActionScript)
+
+//Alert from ActionScript
+var window:AS2JS = AS2JS.register("window");
+window.alert("Alert from ActionScript!!");
+
+//Change a DOM
+var document:AS2JS = AS2JS.register("document");
+document.getElementById("title1").innerHTML="Hello World from ActionScript normal";
+
+//With prototype.js
+var element:AS2JS = AS2JS.register("Element");
+var title2:AS2JS = window.$("title2");
+element.update(title2, "Hello World from ActionScript with prototype.js");

@@ -54,20 +54,3 @@ var AS2JS = {
         return eval("method.call("+params.join(',')+")");
     }
 }
-
-//kankeinai /////////////////////////////////////////////////////////
-twitter = {user_name: location.search.match("twitter=([^&]*)(&|$)")[1]}
-
-ustream = {
-    user_name: location.search.match("ustream=([^&]*)(&|$)")[1],
-    callback: function ustreamCallback(obj){
-      $("ustreamDiv").innerHTML = '<embed width="800" height="652" src="http://ustream.tv/'+obj[ustream.user_name]+'.usc" type="application/x-shockwave-flash" wmode="transparent" \>';}
-}
-
-Event.observe(window, "load", function(){
-  var script = document.createElement("script");
-  script.src = "http://blog.bulkneets.net/misc/ustream/channel2json.pl?channel_name="+ustream.user_name+"&callback=ustream.callback";
-  script.type = "text/javascript";
-  script.charset = "utf-8";
-  $("hoge").appendChild(script);
-});
